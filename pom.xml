@@ -8,10 +8,10 @@
 		<relativePath />
 	</parent>
 
-	<artifactId>extended-choice-parameter</artifactId>
+	<artifactId>extended-choice-parameter-enh</artifactId>
 	<packaging>hpi</packaging>
-	<version>0.35-SNAPSHOT</version>
-	<name>Extended Choice Parameter Plug-In</name>
+	<version>0.1-SNAPSHOT</version>
+	<name>Extended Choice Parameter Enhanced Plug-In</name>
 	<url>http://wiki.jenkins-ci.org/display/JENKINS/Extended+Choice+Parameter+plugin</url>
 
 	<developers>

@@ -6,14 +6,23 @@
 
 package com.cwctravel.hudson.plugins.extended_choice_parameter;
 
+import au.com.bytecode.opencsv.CSVReader;
 import groovy.lang.GroovyShell;
 import hudson.Extension;
 import hudson.Util;
 import hudson.cli.CLICommand;
-import hudson.model.ParameterValue;
 import hudson.model.ParameterDefinition;
+import hudson.model.ParameterValue;
 import hudson.util.FormValidation;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
+import org.apache.tools.ant.Project;
+import org.apache.tools.ant.taskdefs.Property;
+import org.kohsuke.stapler.QueryParameter;
+import org.kohsuke.stapler.StaplerRequest;
 
+import javax.servlet.ServletException;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -31,19 +40,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
-
-import javax.servlet.ServletException;
-
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-
-import org.apache.commons.lang.StringUtils;
-import org.apache.tools.ant.Project;
-import org.apache.tools.ant.taskdefs.Property;
-import org.kohsuke.stapler.QueryParameter;
-import org.kohsuke.stapler.StaplerRequest;
-
-import au.com.bytecode.opencsv.CSVReader;
 
 public class ExtendedChoiceParameterDefinition extends ParameterDefinition {
 	private static final long serialVersionUID = -2946187268529865645L;
@@ -354,14 +350,17 @@ public class ExtendedChoiceParameterDefinition extends ParameterDefinition {
 				final int valuesBetweenLevels = this.value.split(",").length;
 
 				Iterator<?> it = jsonValues.iterator();
-				for(int i = 1; it.hasNext(); i++) {
+				for(int i = 0; it.hasNext(); i++) {
 					String nextValue = it.next().toString();
 					if(i % valuesBetweenLevels == 0) {
 						if(strValue.length() > 0) {
 							strValue += getMultiSelectDelimiter();
 						}
-						strValue += nextValue;
 					}
+					if(i % valuesBetweenLevels != 0) {
+						strValue += ":";
+					}
+					strValue += nextValue;
 				}
 			}
 			else {
