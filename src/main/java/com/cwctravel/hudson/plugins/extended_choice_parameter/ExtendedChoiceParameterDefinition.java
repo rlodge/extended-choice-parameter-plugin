@@ -314,6 +314,9 @@ public class ExtendedChoiceParameterDefinition extends ParameterDefinition {
 		if(PARAMETER_TYPE_TEXT_BOX.equals(type)) {
 			return new ExtendedChoiceParameterValue(getName(), requestValues[0]);
 		}
+		else if (PARAMETER_TYPE_MULTI_LEVEL_MULTI_SELECT.equals(type)) {
+			return new ExtendedChoiceParameterValue(getName(), requestValues[0]);
+		}
 		else {
 			String valueStr = getEffectiveValue();
 			if(valueStr != null) {
