@@ -3,15 +3,15 @@
 	<parent>
 		<groupId>org.jenkins-ci.plugins</groupId>
 		<artifactId>plugin</artifactId>
-		<version>1.466</version>
+		<version>2.3</version>
 		<!-- which version of Hudson is this plugin built against? -->
 		<relativePath />
 	</parent>
 
 	<artifactId>extended-choice-parameter-enh</artifactId>
 	<packaging>hpi</packaging>
-	<version>0.2-SNAPSHOT</version>
-	<name>Extended Choice Parameter Enhanced Plug-In</name>
+	<version>0.77-R-SNAPSHOT</version>
+	<name>Extended Choice Parameter Plug-In</name>
 	<url>http://wiki.jenkins-ci.org/display/JENKINS/Extended+Choice+Parameter+plugin</url>
 
 	<developers>
@@ -26,6 +26,21 @@
 			<groupId>net.sf.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
 			<version>2.0</version>
+		</dependency>
+        <dependency>
+          <groupId>org.jenkins-ci.plugins</groupId>
+          <artifactId>jquery</artifactId>
+          <version>1.11.2-0</version>
+        </dependency>
+        <dependency>
+          <groupId>org.jenkins-ci.plugins</groupId>
+          <artifactId>script-security</artifactId>
+          <version>1.19</version>
+        </dependency>
+		<dependency>
+			<groupId>io.fastjson</groupId>
+			<artifactId>boon</artifactId>
+			<version>0.33</version>
 		</dependency>
 	</dependencies>
 
@@ -45,13 +60,18 @@
 	</pluginRepositories>
 	<distributionManagement>
 		<repository>
-		<id>maven.jenkins-ci.org</id>
-		<url>http://maven.jenkins-ci.org/content/repositories/releases/</url>
-	</repository>
+			<id>maven.jenkins-ci.org</id>
+			<url>http://repo.jenkins-ci.org/releases/</url>
+	   </repository>
+	    <snapshotRepository>
+	      <id>maven.jenkins-ci.org</id>
+	      <url>http://repo.jenkins-ci.org/snapshots/</url>
+	    </snapshotRepository>
 	</distributionManagement>
 	<scm>
 		<connection>scm:git:ssh://git@github.com/jenkinsci/extended-choice-parameter-plugin.git</connection>
 		<developerConnection>scm:git:ssh://git@github.com/jenkinsci/extended-choice-parameter-plugin.git</developerConnection>
 		<url>https://github.com/jenkinsci/extended-choice-parameter-plugin</url>
-	</scm>
+	  <tag>extended-choice-parameter-0.66</tag>
+  </scm>
 </project>
