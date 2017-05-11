@@ -601,8 +601,10 @@ public class ExtendedChoiceParameterDefinition extends ParameterDefinition {
 						if(sB.length() > 0) {
 							sB.append(getMultiSelectDelimiter());
 						}
-						sB.append(nextValue);
+					} else {
+						sB.append(":");
 					}
+					sB.append(nextValue);
 				}
 				strValue = sB.toString();
 			}

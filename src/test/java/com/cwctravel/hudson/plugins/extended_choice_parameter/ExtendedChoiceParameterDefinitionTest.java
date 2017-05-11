@@ -45,24 +45,37 @@ public class ExtendedChoiceParameterDefinitionTest {
 	@Test
 	public void testJsonParameterValueStuff() {
 		ExtendedChoiceParameterDefinition dfn = new ExtendedChoiceParameterDefinition(
-			"FOO",
-			ExtendedChoiceParameterDefinition.PARAMETER_TYPE_MULTI_LEVEL_MULTI_SELECT,
-			"Application,War,Version",
-			"",
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			false,
-			5,
-			"What to build",
-			null
+			"FOO",//String name,
+			ExtendedChoiceParameterDefinition.PARAMETER_TYPE_MULTI_LEVEL_MULTI_SELECT,//String type,
+			"Application,War,Version",//String value,
+			"",//String projectName,
+			null,//String propertyFile,
+			null,//String groovyScript,
+			null,//String groovyScriptFile,
+			null,//String bindings,
+			null,//String groovyClasspath,
+			null,//String propertyKey,
+			null,//String defaultValue,
+			null,//String defaultPropertyFile,
+			null,//String defaultGroovyScript,
+			null,//String defaultGroovyScriptFile,
+			null,//String defaultBindings,
+			null,//String defaultGroovyClasspath,
+			null,//String defaultPropertyKey,
+			null,//String descriptionPropertyValue,
+			null,//String descriptionPropertyFile,
+			null,//String descriptionGroovyScript,
+			null,//String descriptionGroovyScriptFile,
+			null,//String descriptionBindings,
+			null,//String descriptionGroovyClasspath,
+			null,//String descriptionPropertyKey,
+			null,//String javascriptFile,
+			null,//String javascript,
+			false,//boolean saveJSONParameterToFile,
+			false,//boolean quoteValue,
+			5,//int visibleItemCount,
+			"What to build",//String description,
+			null//String multiSelectDelimiter
 		);
 		assertNotNull(dfn);
 		JSONArray arr = JSONArray.fromObject(new String[] {"app1", "war1", "RELEASE", "app1", "war2", "3.7.21-SNAPSHOT", "app2", "ALL", "LATEST"});
@@ -77,28 +90,39 @@ public class ExtendedChoiceParameterDefinitionTest {
 	@Test
 	public void testGetParameterValueStuff() {
 		ExtendedChoiceParameterDefinition dfn = new ExtendedChoiceParameterDefinition(
-			"FOO",
-			ExtendedChoiceParameterDefinition.PARAMETER_TYPE_MULTI_LEVEL_MULTI_SELECT,
-			"Application,War,Version",
-			"",
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			null,
-			false,
-			5,
-			"What to build",
-			null
+			"FOO",//String name,
+			ExtendedChoiceParameterDefinition.PARAMETER_TYPE_MULTI_LEVEL_MULTI_SELECT,//String type,
+			"Application,War,Version",//String value,
+			"",//String projectName,
+			null,//String propertyFile,
+			null,//String groovyScript,
+			null,//String groovyScriptFile,
+			null,//String bindings,
+			null,//String groovyClasspath,
+			null,//String propertyKey,
+			null,//String defaultValue,
+			null,//String defaultPropertyFile,
+			null,//String defaultGroovyScript,
+			null,//String defaultGroovyScriptFile,
+			null,//String defaultBindings,
+			null,//String defaultGroovyClasspath,
+			null,//String defaultPropertyKey,
+			null,//String descriptionPropertyValue,
+			null,//String descriptionPropertyFile,
+			null,//String descriptionGroovyScript,
+			null,//String descriptionGroovyScriptFile,
+			null,//String descriptionBindings,
+			null,//String descriptionGroovyClasspath,
+			null,//String descriptionPropertyKey,
+			null,//String javascriptFile,
+			null,//String javascript,
+			false,//boolean saveJSONParameterToFile,
+			false,//boolean quoteValue,
+			5,//int visibleItemCount,
+			"What to build",//String description,
+			null//String multiSelectDelimiter
 		);
 		assertNotNull(dfn);
-		JSONArray arr = JSONArray.fromObject(new String[] {"app1", "war1", "RELEASE", "app1", "war2", "3.7.21-SNAPSHOT", "app2", "ALL", "LATEST"});
-		JSONObject obj = JSONObject.fromObject(Collections.singletonMap("value", arr));
 		ParameterValue value = dfn.createValue(new MockStaplerRequest(new String[] {"app1:war1:RELEASE,app1:war2:3.7.21-SNAPSHOT,app2:ALL:LATEST"}));
 		assertEquals("FOO", value.getName());
 		EnvVars env = new EnvVars();
@@ -132,6 +156,18 @@ public class ExtendedChoiceParameterDefinitionTest {
 		}
 
 		public ServletContext getServletContext() {
+			return null;
+		}
+
+		@Override
+		public String getRequestURIWithQueryString() {
+			//TODO: Implement
+			return null;
+		}
+
+		@Override
+		public StringBuffer getRequestURLWithQueryString() {
+			//TODO: Implement
 			return null;
 		}
 
@@ -265,6 +301,18 @@ public class ExtendedChoiceParameterDefinitionTest {
 		}
 
 		public BindInterceptor setBindListener(BindInterceptor bindListener) {
+			return null;
+		}
+
+		@Override
+		public BindInterceptor setBindInterceptpr(final BindInterceptor bindListener) {
+			//TODO: Implement
+			return null;
+		}
+
+		@Override
+		public BindInterceptor setBindInterceptor(final BindInterceptor bindListener) {
+			//TODO: Implement
 			return null;
 		}
 
